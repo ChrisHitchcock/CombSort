@@ -10,7 +10,7 @@ package combtest;
  * @author chhit5249
  */
 public class CombTest {
-
+    static int loops = 0;
     /**
      * @param args the command line arguments
      */
@@ -23,32 +23,40 @@ public class CombTest {
         for (int a = 0; a < nums.length; a++) {
             System.out.print(nums[a] + " ");
         }
-        System.out.println("\n--------------------------------\nSorted Array:");
-        sort(nums, nums.length);
+        System.out.println("\n--------------------------------\nSteps of Sorting: ");
+        sort(nums);
+        System.out.println("--------------------------------\nSorted Array:");
         for (int a = 0; a < nums.length; a++) {
             System.out.print(nums[a] + " ");
         }
     }
 
-    public static void sort(int x[], int gap) {
-        //Setting variables; n is the length of the array and gap 
-        int n = x.length;
-        gap = (gap * 10) / 13;
+    public static void sort(int[] input) {
+        int gap = input.length;
+        boolean swapped = true;
+        int loops = 0;
+        while (gap > 1 || swapped) {
+            for (int a = 0; a < input.length; a++) {
+                System.out.print(input[a] + " ");
+            }
+            System.out.println("\t" + loops);
+            if (gap > 1) {
+                gap = (int) (gap / 1.3);
+            }
+            swapped = false;
+            for (int i = 0; i + gap < input.length; i++) {
 
-        //Loop
-        for (int i = 0; i < n - gap; i++) {
-            //Sorting - shows each step 
-            if (x[i] > x[i + gap]) {
-                int ph = x[i];
-                x[i] = x[i + gap];
-                x[i + gap] = ph;
-                for (int a = 0;a<n;a++)
-                {
-                    System.out.print(x[a]+", ");
+                if (input[i] > input[i + gap]) {
+                    int t = input[i];
+                    input[i] = input[i + gap];
+                    input[i + gap] = t;
+                    swapped = true;
+                    loops += 1;
+                } else {
+                    loops += 1;
                 }
-                System.out.println("");
-                sort(x, gap);
             }
         }
     }
+
 }
