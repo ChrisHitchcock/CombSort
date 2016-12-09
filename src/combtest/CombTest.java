@@ -10,7 +10,6 @@ import java.util.*;
  * @author chhit5249
  */
 public class CombTest {
-    static int loops = 0;
 
     /**
      * Everything happens here.
@@ -36,7 +35,7 @@ public class CombTest {
             System.out.print(nums[a] + " ");
         }
         System.out.println("\n---------------------------------------------------------------------"
-                + "\nSteps of Sorting:\t\t\t\tComparisons\tLoops");
+                + "\nSteps of Sorting:\t\t\t\tComparisons\tLoops\tSwaps");
         long t1 = System.currentTimeMillis();
         sort(nums);
         long time = System.currentTimeMillis()-t1;
@@ -59,13 +58,14 @@ public class CombTest {
         //Method variable declarations
         int gap = input.length;
         boolean swapped = true;
+        int comps = 0;
         int loops = 0;
-        int loops2 = 0;
+        int swaps = 0;
         
         //While loop until swapping is finished (i.e. gap <1 or swapped=false)
         while (gap > 1 || swapped) {
             //Stuff for step by step output
-            loops2++;
+            loops++;
             for (int a = 0; a < input.length; a++) {
                 System.out.print(input[a] + " ");
             }
@@ -81,7 +81,7 @@ public class CombTest {
             //For loop to go through array and swap via gap.
             for (int i = 0; i + gap < input.length; i++) {
                 //Int for number of comparisons
-                loops += 1;
+                comps += 1;
                 
                 //If swap is necessary, swap
                 if (input[i] < input[i + gap]) {
@@ -89,10 +89,11 @@ public class CombTest {
                     input[i] = input[i + gap];
                     input[i + gap] = t;
                     swapped = true;
+                    swaps+=1;
                 }
             }
-            //Format output of number of comparisons and how many loops
-            System.out.println("\t" + loops + "\t\t" + loops2);
+            //Format output of number of comparisons, loops, and swaps
+            System.out.println("\t" + comps + "\t\t" + loops+"\t"+swaps);
         }
     }
 
