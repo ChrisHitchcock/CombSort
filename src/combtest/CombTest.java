@@ -34,12 +34,12 @@ public class CombTest {
         for (int a = 0; a < nums.length; a++) {
             System.out.print(nums[a] + " ");
         }
-        System.out.println("\n---------------------------------------------------------------------"
+        System.out.println("\n-----------------------------------------------------------------------------"
                 + "\nSteps of Sorting:\t\t\t\tComparisons\tLoops\tSwaps");
         long t1 = System.currentTimeMillis();
         sort(nums);
         long time = System.currentTimeMillis()-t1;
-        System.out.println("---------------------------------------------------------------------"
+        System.out.println("-----------------------------------------------------------------------------"
                 + "\nSorted Array:");
         for (int a = 0; a < nums.length; a++) {
             System.out.print(nums[a] + " ");
