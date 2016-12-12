@@ -45,7 +45,6 @@ public class CombTest {
             System.out.print(nums[a] + " ");
         }
         System.out.println("\n\nSorting took: "+time+"ms");
-       
     }
 
     /**
@@ -96,5 +95,28 @@ public class CombTest {
             System.out.println("\t" + comps + "\t\t" + loops+"\t"+swaps);
         }
     }
+    
+    /*public static int binSearch(int arr[], int g) {
+        int mid = arr.length/2;
+        if (g==arr[mid])
+        {
+            return arr[mid];
+        }
+        else if (g<arr[mid])
+        {
+            int[] upperHalf = new int[arr.length/2];
+            for (int i = arr.length/2;i<arr.length;i++)
+            {
+                for (int x = 0; x<arr.length/2;i++)
+                upperHalf[x]=arr[i];
+            }
+            binSearch(upperHalf,g);
+        }
+        else if (g>arr[mid])
+        {
+            
+        }
+        return arr[mid];
+    }*/
 
 }
